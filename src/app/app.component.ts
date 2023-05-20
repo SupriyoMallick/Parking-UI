@@ -30,7 +30,7 @@ export class AppComponent{
     this.vacantparkingCount = this.findParkingDetails.tot_vac;
     this.occupiadarkingCount= this.findParkingDetails.tot_occ;
     this.parkingCount= (this.findParkingDetails.tot_vac +  this.findParkingDetails.tot_occ);
-    this.lastUpdTime='Last updated : '+this.findParkingDetails.last_update;
+    this.lastUpdTime='Last updated : '+(this.findParkingDetails.last_update).substring(0,14) ;
     
     if(this.vacantparkingCount==0){
       this.title='Parking Full';
