@@ -58,9 +58,14 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options":{
+            "browserTarget": "My-test-ui:build",
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "browserTarget": "SmartParking:build:production"
+              
             },
             "development": {
               "browserTarget": "SmartParking:build:development"

@@ -396,19 +396,17 @@
   </div>
 
  
-  <!-- Next Steps 
-  <h2></h2>
-  <p>What do you want to do next with your app?</p>-->
+  <p>{{lastUpdTime}}</p>
 
-  <input type="hidden" #selection>
+   <!-- Next Steps <input type="hidden" #selection>-->
 
  
 
-  <div class="card-container" *ngFor='let pd of parkingDtl;'>
+  <div class="card-container" *ngFor='let pd of slotList;'>
    <!-- <label class="card card-small"  tabindex="0"> -->
     <label class="parking-slot">
       <!-- <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> -->
-      <span>Floor {{pd.floorNo}} > Area {{pd.areaNo}} > Slot {{pd.slotNo}} > {{pd.status}}</span>
+      <span>Floor {{pd.building_floor}} > Area {{pd.building_room}} > Slot {{pd.parking_slot_num}} > {{pd.parking_slot_status}}</span>
    </label>
 
   
