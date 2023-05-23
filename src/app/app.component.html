@@ -10,7 +10,6 @@
 <meta http-equiv="refresh" content="30">
 </head>
 
-
 <style>
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -325,15 +324,45 @@
   <div class="card highlight-card card-small">
     
 
-    <svg id="rocket" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
+    <!-- <svg id="rocket" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
       
       <title>Connected Parking</title>
       <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
         <circle id="Ellipse_8" data-name="Ellipse 8" cx="50.839" cy="50.839" r="50.839" transform="translate(141 696)" fill="#ffcc33"/>
-    
+
               </g>
               
-    </svg>
+    </svg> -->
+    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+    width="32.000000pt" height="32.000000pt" viewBox="0 0 32.000000 32.000000"
+    preserveAspectRatio="xMidYMid meet">
+   
+   <g transform="translate(0.000000,32.000000) scale(0.100000,-0.100000)"
+   fill="#000000" stroke="none">
+   <path d="M214 285 c-3 -8 -4 -20 -1 -27 3 -7 6 -3 6 9 1 18 8 22 44 26 l42 4
+   -43 1 c-29 1 -44 -3 -48 -13z"/>
+   <path d="M310 240 l0 -50 -44 0 c-34 0 -46 4 -49 18 -4 15 -5 15 -6 -1 -1 -11
+   7 -21 19 -24 13 -4 20 -14 20 -30 l0 -25 -36 21 c-48 28 -116 28 -171 -1 -36
+   -19 -43 -28 -43 -53 0 -47 65 -88 85 -55 8 13 155 13 155 0 0 -5 11 -10 25
+   -10 14 0 25 5 25 10 0 6 7 10 15 10 23 0 19 48 -5 62 -12 8 -20 24 -20 39 0
+   18 6 28 20 32 17 4 20 14 20 56 0 28 -2 51 -5 51 -3 0 -5 -22 -5 -50z m-43
+   -97 c-3 -10 -5 -4 -5 12 0 17 2 24 5 18 2 -7 2 -21 0 -30z m-168 8 c8 -5 12
+   -18 8 -30 -6 -23 -2 -25 63 -21 54 3 64 8 50 25 -8 10 2 9 37 -4 30 -11 49
+   -24 51 -35 4 -18 -18 -38 -44 -42 -13 -2 -13 21 1 33 4 4 5 3 2 -3 -3 -6 0
+   -11 8 -11 19 0 19 13 0 21 -8 3 -21 -1 -29 -9 -10 -11 -37 -15 -89 -15 -40 0
+   -77 -3 -81 -7 -12 -12 -33 -11 -33 2 0 7 8 12 19 10 10 -2 18 0 18 4 0 5 -11
+   9 -25 9 -14 0 -25 -4 -25 -9 0 -5 -4 -9 -10 -9 -14 0 -13 57 1 66 7 4 16 -1
+   21 -10 5 -9 14 -16 21 -16 8 0 8 3 -2 9 -10 7 -8 12 10 25 13 9 19 16 13 16
+   -5 0 -16 -6 -24 -12 -12 -11 -12 -10 -1 5 15 19 20 20 40 8z m92 -6 c1 -5 6
+   -16 12 -23 8 -11 2 -13 -33 -10 -49 3 -64 23 -28 37 27 12 49 10 49 -4z"/>
+   <path d="M84 254 c-18 -15 -18 -15 3 -5 29 15 66 14 83 -1 12 -11 12 -10 1 5
+   -17 21 -61 22 -87 1z"/>
+   <path d="M250 238 c0 -30 1 -31 15 -12 19 25 19 44 0 44 -10 0 -15 -10 -15
+   -32z"/>
+   </g>
+   </svg>
+   
+
     
 
     <span>{{ title }}</span>
@@ -354,13 +383,18 @@
   </div>
 
  
-  <p>{{lastUpdTime}}</p>
+  <p class="time">{{lastUpdTime}}</p>
 
    <!-- Next Steps <input type="hidden" #selection>-->
+   
+  <div *ngIf="parkingFullInd">
+    <div class="time"><span class="timehighlight">Waiting time 40 mins </span>, as per current trend.</div>
+    <div class="area">Next available parking area at <span class="areahighlight"> River side road.</span></div>
+    
+   </div>
 
- 
-
-  <div class="card-container" *ngFor='let pd of slotList;'>
+   <div *ngIf="!parkingFullInd">
+  <div class="card-container"  *ngFor='let pd of slotList;'>
    <!-- <label class="card card-small"  tabindex="0"> -->
     <label class="parking-slot">
       <!-- <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> -->
@@ -369,6 +403,7 @@
 
   
   </div>
+</div>
 
   <!-- Terminal -->
  <!-- <div class="terminal" [ngSwitch]="selection.value">

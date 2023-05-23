@@ -8,6 +8,7 @@ import { DataServiceService } from './services/data-service.service';
 })
 export class AppComponent{
 
+  parkingFullInd = false;
   vacantparkingCount = 0;
   occupiadarkingCount = 0;
   parkingCount = 0;
@@ -34,9 +35,11 @@ export class AppComponent{
     
     if(this.vacantparkingCount==0){
       this.title='Parking Full';
+      this.parkingFullInd=true;
     }
     else{
-      this.title = this.vacantparkingCount.toString() +' parking available out of '+ this.parkingCount.toString() ;
+      this.title = this.vacantparkingCount.toString() +' / '+ this.parkingCount.toString() +' available.'  ;
+      this.parkingFullInd=false;
     }
       }else{
         alert('Problem retriving data. Please try after sometime.');

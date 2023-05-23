@@ -5,3 +5,26 @@ border-width: 10px;
 padding: 5%;
 border-color: black;
 }
+
+.timehighlight{
+    display: inline-block;
+    padding: .25em 0;
+    background: #55f923;
+    color: #0a0a0a;
+}
+.areahighlight{
+    display: inline-block;
+    padding: .25em 0;
+    background: #4814d4;
+    color: #ffffff;
+}
+
+.time{
+    padding: 10px;
+    font-size: medium;
+}
+
+.area{
+    padding: 10px;
+    font-size: medium;
+}
